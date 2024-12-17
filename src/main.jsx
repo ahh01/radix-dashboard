@@ -4,12 +4,10 @@ import App from './App.jsx'
 import { Theme } from "@radix-ui/themes";
 import '@radix-ui/themes/styles.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-   
-    <Theme accentColor="green" appearance="dark">
-    <App />
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode> 
+    <Theme Theme="dark" accentColor="" >
+      <App />
     </Theme>
-  
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

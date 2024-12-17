@@ -10,47 +10,68 @@ import {
   Text,
   IconButton,
 } from "@radix-ui/themes";
+import { Overview } from "./components/Overwiev";
+import { RecentSales } from "./components/RecentSales";
+
 
 export default function App() {
   return (
     <>
-      <Card style={{  padding: "16px" }}>
+      <style>
+        {`
+          body {
+            background-color: #000000;
+            color: #FFFFFF; /* Optional: Set default text color to white */
+          }
+        `}
+      </style>
+      <Card style={{ padding: "16px", backgroundColor: "#000000" }}>
         <div className="Header">
-          <Flex direction="column" gap="3">
-            <Tabs.Root defaultValue="account">
-              <Tabs.List style={{ display: "flex", gap: "8px" }}>
-                <Tabs.Trigger value="account">Overview</Tabs.Trigger>
-                <Tabs.Trigger value="documents">Customers</Tabs.Trigger>
-                <Tabs.Trigger value="product">Products</Tabs.Trigger>
-                <Tabs.Trigger value="settings">Settings</Tabs.Trigger>
-                <input
-                  type="search"
-                  placeholder="  Search..."
-                  style={{
-                    marginLeft: "auto",
-                    marginRight: "8px",
-                    height: "36px",
-                    width: "300px",
-                    borderRadius: "5px",
-                    borderWidth: "1px",  // Smal gräns
-                    borderColor: "#ccc",  // Grå färg för gränsen
-                    borderStyle: "solid",  // Solid linje
-                  }}
-                />
-                <IconButton
-                  style={{
-                    backgroundImage:
-                      'url("https://ui.shadcn.com/avatars/01.png")',
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                  }}
-                />
-              </Tabs.List>
-            </Tabs.Root>
-          </Flex>
+          <Card style={{ backgroundColor: "#000000", padding: "20xp" }}>
+            <Flex direction="column" gap="3">
+              <Tabs.Root defaultValue="account">
+                <Tabs.List style={{ display: "flex", gap: "8px" }}>
+                  <Tabs.Trigger value="account" style={{ color: "white" }}>
+                    Overview
+                  </Tabs.Trigger>
+                  <Tabs.Trigger value="documents" style={{ color: "white" }}>
+                    Customers
+                  </Tabs.Trigger>
+                  <Tabs.Trigger value="product" style={{ color: "white" }}>
+                    Products
+                  </Tabs.Trigger>
+                  <Tabs.Trigger value="settings" style={{ color: "white" }}>
+                    Settings
+                  </Tabs.Trigger>
+                  <input
+                    type="search"
+                    placeholder="  Search..."
+                    style={{
+                      marginLeft: "auto",
+                      marginRight: "8px",
+                      height: "36px",
+                      width: "300px",
+                      borderRadius: "5px",
+                      borderColor: "#444", // Grå färg för gränsen
+                      backgroundColor: "#000000", // Svart text
+                      color: "#FFFFFF", // Vit text
+                    }}
+                  />
+                  <IconButton
+                    style={{
+                      backgroundImage:
+                        'url("https://ui.shadcn.com/avatars/01.png")',
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                    }}
+                  />
+                </Tabs.List>
+              </Tabs.Root>
+            </Flex>
+          </Card>
         </div>
 
         <Flex
@@ -58,12 +79,18 @@ export default function App() {
           justify="space-between"
           style={{ marginBottom: "16px" }}
         >
-          <h2 style={{ margin: 0 }}>Dashboard</h2>
+          <h2 style={{ margin: 10, color: "white" }}>Dashboard</h2>
 
           <Flex align="center" gap="3">
             <Popover.Root>
               <Popover.Trigger>
-                <Button variant="soft">
+                <Button
+                  variant="soft"
+                  style={{
+                    color: "#ffffff", // Vit text
+                    border: "1px solid #333", // Valfri kantfärg
+                  }}
+                >
                   <svg
                     width="15"
                     height="15"
@@ -83,29 +110,64 @@ export default function App() {
                 </Button>
               </Popover.Trigger>
             </Popover.Root>
-            <Button style={{ marginLeft: "16px" }}>Download</Button>
+            <Button
+              style={{
+                marginLeft: "16px",
+                backgroundColor: "#ffffff", // Vit bakgrund
+                color: "#000000", // Svart text
+                border: "1px solid #333", // Kantlinje för definition
+              }}
+            >
+              Download
+            </Button>
           </Flex>
         </Flex>
 
-        <Box style={{ maxWidth: "400px" }}>
+        <Box
+          style={{
+            maxWidth: "400px",
+            backgroundColor: "#282828",
+            borderRadius: "8px",
+            borderColor: "#333",
+            hover: {
+              backgroundColor: "black",
+            },
+          }}
+        >
           <Tabs.Root defaultValue="overview">
-            <Tabs.List
-              style={{
-                backgroundColor: "#f3f4f6",
-                borderRadius: "8px",
-                boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-              }}
-            >
-              <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
-              <Tabs.Trigger value="analytics">Analytics</Tabs.Trigger>
-              <Tabs.Trigger value="reports">Reports</Tabs.Trigger>
-              <Tabs.Trigger value="notifications">Notifications</Tabs.Trigger>
+            <Tabs.List>
+              <Tabs.Trigger
+                value="overview"
+                style={{
+                  color: "white",
+                  margin: "6px",
+                  backgroundColor: "black",
+                  borderRadius: "8px",
+                }}
+              >
+                Overview
+              </Tabs.Trigger>
+              <Tabs.Trigger value="analytics" style={{ color: "white" }}>
+                Analytics
+              </Tabs.Trigger>
+              <Tabs.Trigger value="reports" style={{ color: "white" }}>
+                Reports
+              </Tabs.Trigger>
+              <Tabs.Trigger value="notifications" style={{ color: "white" }}>
+                Notifications
+              </Tabs.Trigger>
             </Tabs.List>
           </Tabs.Root>
         </Box>
 
         <Grid columns="4" gap="4">
-          <Card style={{ margin: "16px" }}>
+          <Card
+            style={{
+              margin: "16px",
+              backgroundColor: "#000000",
+              color: "#FFFFFF",
+            }}
+          >
             <Flex direction="column" gap="2" align="start">
               <Text size="3" weight="bold">
                 Total Revenue
@@ -128,7 +190,13 @@ export default function App() {
               </svg>
             </Flex>
           </Card>
-          <Card style={{ margin: "16px" }}>
+          <Card
+            style={{
+              margin: "16px",
+              backgroundColor: "#000000",
+              color: "#FFFFFF",
+            }}
+          >
             <Flex direction="column" gap="2" align="start">
               <Text size="3" weight="bold">
                 Subscriptions
@@ -136,7 +204,7 @@ export default function App() {
               <Text size="6" weight="bold">
                 +2350
               </Text>
-              <Text size="1">+20.1% from last month</Text>
+              <Text size="1">+180.1% from last month</Text>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -153,7 +221,13 @@ export default function App() {
               </svg>
             </Flex>
           </Card>
-          <Card style={{ margin: "16px" }}>
+          <Card
+            style={{
+              margin: "16px",
+              backgroundColor: "#000000",
+              color: "#FFFFFF",
+            }}
+          >
             <Flex direction="column" gap="2" align="start">
               <Text size="3" weight="bold">
                 Sales
@@ -161,7 +235,7 @@ export default function App() {
               <Text size="6" weight="bold">
                 +12,234
               </Text>
-              <Text size="1">+20.1% from last month</Text>
+              <Text size="1">+19% from last month</Text>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -177,7 +251,13 @@ export default function App() {
               </svg>
             </Flex>
           </Card>
-          <Card style={{ margin: "16px" }}>
+          <Card
+            style={{
+              margin: "16px",
+              backgroundColor: "#000000",
+              color: "#FFFFFF",
+            }}
+          >
             <Flex direction="column" gap="2" align="start">
               <Text size="3" weight="bold">
                 Active Now
@@ -185,7 +265,7 @@ export default function App() {
               <Text size="6" weight="bold">
                 +573
               </Text>
-              <Text size="1">+20.1% from last month</Text>
+              <Text size="1">+201 from last hour</Text>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -202,6 +282,23 @@ export default function App() {
           </Card>
         </Grid>
       </Card>
+      <Flex
+        style={{
+          display: "flex",
+          gap: "10px",
+          backgroundColor: "#000000",
+        }}
+      >
+        {/* Overview Section */}
+        <Box style={{ flex: 1.5, margin: "15px", backgroundColor: "#000000" }}>
+          <Overview />
+        </Box>
+
+        {/* Recent Sales Section */}
+        <Box style={{ flex: 1, margin: "15px", backgroundColor: "#000000" }}>
+          <RecentSales />
+        </Box>
+      </Flex>
     </>
   );
 }
